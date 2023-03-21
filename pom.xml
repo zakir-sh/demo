@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mybank.demo</groupId>
+  <artifactId>rbc-demo</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+	<repositories>
+		<repository>
+		<id>central</id>
+		<name>centralrepo</name>
+		<url>http://repo.maven.apache.org/maven2</url>
+		<layout>default</layout>
+		</repository>
+	</repositories>
+	
+	<pluginRepositories>
+		<pluginRepository>
+		<id>central</id>
+		<name>centralrepo</name>
+		<url>http://repo.maven.apache.org/maven2</url>
+		<layout>default</layout>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<properties>
+    	<maven.compiler.target>1.8</maven.compiler.target>
+	    <maven.compiler.source>1.8</maven.compiler.source>
+		<name>project.build.sourceEncoding</name>
+		<value>UTF-8</value>
+	    <spring.boot.version>2.5.10</spring.boot.version>
+        <spring.cloud.version>2022.0.1</spring.cloud.version>
+        <h2.version>2.1.214</h2.version>
+        <apache.commons.lang3>3.12.0</apache.commons.lang3>
+	</properties>
+
+  	<dependencies>
+  	
+	  	<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>${apache.commons.lang3}</version>
+		</dependency>
+   	
+   	  <dependency>
+		<groupId>org.springframework.boot</groupId>
+	  	<artifactId>spring-boot-starter-web</artifactId>
+	  	<version>${spring.boot.version}</version>
+	  </dependency>
+	  
+	  <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+            <version>${h2.version}</version>
+      </dependency>
+      
+      <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+      </dependency>
+	  
+	  <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-jdbc</artifactId>
+    	<version>${spring.boot.version}</version>
+	  </dependency>
+    
+	 <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-data-jpa</artifactId>
+    	<version>${spring.boot.version}</version>
+	 </dependency>
+	  
+	</dependencies> 
+	
+
+   <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+   	<build>
+		<plugins>
+			<plugin>
+			<groupId>org.springframework.boot</groupId>
+		  	<artifactId>spring-boot-maven-plugin</artifactId>
+		  	<version>${spring.boot.version}</version>
+		  	<executions>
+		  		<execution>
+		  			<goals>
+		  				<goal>repackage</goal>
+		  			</goals>
+		  		</execution>
+		  	</executions>
+			</plugin>
+		</plugins>	
+	</build>
+
+</project>
